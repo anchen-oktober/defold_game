@@ -1,0 +1,40 @@
+-- main/main.script
+
+local total_targets = 9
+local destroyed_targets = 0
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	-- Кубок скрыт в начале
+	msg.post("cup#cup", "disable")
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		-- создаём луч из точки касания
+		local ray_start = vmath.vector3(action.x, action.y, 0)
+		local ray_end = vmath.vector3(action.x, action.y, 1)
+		local results = {} -- таблица для хранения результатов
+
+		physics.raycast(ray_start, ray_end, results)
+
+		if #results > 0 then
+			local hit = results[1]
+			if hit.group == hash("target") then
+				-- скрываем цель
+				msg.post(hit.id, "disable")
+				destroyed_targets = destroyed_targets + 1
+
+				-- если все цели уничтожены → показываем кубок
+				if destroyed_targets == total_targets then
+					show_cup()
+				end
+			end
+		end
+	end
+end
+
+function show_cup()
+	msg.post("cup#sprite1", "enable")
+	print("🏆 Все цели поражены! Кубок появился!")
+end

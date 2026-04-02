@@ -1,0 +1,13 @@
+images {
+  image: "/assets/images/background.png"
+}
+images {
+  image: "/builtins/graphics/particle_blob.png"
+}
+images {
+  image: "/assets/images/prize_cup.png"
+}
+images {
+  image: "/assets/images/target.png"
+}
+extrude_borders: 2
