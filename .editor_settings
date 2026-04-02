@@ -2,14 +2,18 @@
   :code {
     :breakpoints [
     ]
+    :find {
+      :term "max_clicks"
+    }
+  }
+  :scene {
+    :grid {
+      :opacity 0.0
+    }
   }
   :workflow {
     :open-tabs [
       [
-        [
-          "/README.md"
-          :html
-        ]
         [
           "/main/main.atlas"
           :scene
@@ -26,20 +30,28 @@
           "/main/main.collection"
           :scene
         ]
+        [
+          "/builtins/fonts/default.font"
+          :scene
+        ]
       ]
     ]
     :recent-files [
       [
-        "/README.md"
-        :html
+        "/input/game.input_binding"
+        :cljfx-form-view
+      ]
+      [
+        "/builtins/fonts/default.font"
+        :scene
       ]
       [
         "/main/main.atlas"
         :scene
       ]
       [
-        "/main/main.script"
-        :code
+        "/README.md"
+        :html
       ]
       [
         "/game.project"
@@ -48,6 +60,10 @@
       [
         "/main/main.collection"
         :scene
+      ]
+      [
+        "/main/main.script"
+        :code
       ]
     ]
   }

@@ -10,4 +10,7 @@ images {
 images {
   image: "/assets/images/target.png"
 }
+images {
+  image: "/builtins/assets/images/logo/logo_256.png"
+}
 extrude_borders: 2
